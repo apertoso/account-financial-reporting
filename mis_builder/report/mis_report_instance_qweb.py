@@ -14,6 +14,7 @@ class Report(models.Model):
 
     @api.model
     def get_pdf(self, docids, report_name, html=None, data=None):
+        ctx = {}
         if docids:
             report = self._get_report_from_name(report_name)
             obj = self.env[report.model].browse(docids)[0]
